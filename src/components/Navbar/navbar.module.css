@@ -12,8 +12,27 @@ nav{
 	width: 92%;
 	margin: 0 auto;
 }
-nav{
+.wrapperNavbar{
+	display: block;
 	position: absolute;
+	width: 100%;
+	height: auto;
+	top: 32px;
+	right: -4.2%;
+	overflow: hidden;
+}
+nav{
+	justify-content: flex-end;
+	position: relative;
+	top: 0;
+	right: -100%;
+	padding-right: 6.5%;
+	transition: all 1s ease;
+	overflow: hidden;
+	background: orange;
+}
+nav.showNavbar{
+	right: 6.5%;
 }
 @media (min-width: 576px){
 	.navbar{

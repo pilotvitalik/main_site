@@ -49,29 +49,42 @@ const AppStyles = makeStyles((theme) => ({
   },
 }));
 
-function Hamburger(){
+function Hamburger(props){
   const classes = AppStyles();
 
-  function showMenu(e){
-    e.target.classList.toggle('rotateSVG');
-  }
-
   return(
-    <MenuIcon className={classes.root} onClick={showMenu}/>
+    <MenuIcon className={classes.root} onClick={props.func}/>
   );
 }
 
 class Navbar extends Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      isShowMenu: false,
+    };
+    this.showMenu = this.showMenu.bind(this);
+  }
+
+  showMenu(e){
+    e.currentTarget.classList.toggle('rotateSVG');
+    this.setState(state => ({
+      isShowMenu: !state.isShowMenu
+    }));
+  }
+
   render(){
     const listMenu = listNavbar.map((item) => 
       <TableContentItem key={item.id} value={item.name} subItem={item.sub_list}/>
     );
     return (
       <div className={styles.navbar}>
-        <Hamburger/>
-        <nav>
-          {listMenu}
-        </nav>
+        <Hamburger func={this.showMenu}/>
+        <div className={styles.wrapperNavbar}>
+          <nav className={this.state.isShowMenu ? styles.showNavbar : ''}>
+            {listMenu}
+          </nav>
+        </div>
       </div>
     );
   }
