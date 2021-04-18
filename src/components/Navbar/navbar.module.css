@@ -1,0 +1,38 @@
+.navbar,
+nav{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	position: relative;
+	width: 100%;
+	height: auto;
+}
+.navbar{
+	justify-content: flex-end;
+	width: 92%;
+	margin: 0 auto;
+	padding: 10px 0;
+}
+nav{
+	position: absolute;
+}
+@media (min-width: 576px){
+	.navbar{
+		width: 95%;
+	}
+}
+@media (min-width: 768px){
+	.navbar{
+		width: 96%;
+	}
+}
+@media (min-width: 992px){
+	nav{
+		position: relative;
+	}
+}
+@media (min-width: 768px){
+	.navbar{
+		width: 1140px;
+	}
+}

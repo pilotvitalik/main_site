@@ -1,0 +1,18 @@
+.itemNavbar{
+	display: none;
+	flex-direction: column;
+	position: relative;
+	width: auto;
+	height: auto;
+}
+.itemNavbar:hover{
+	cursor: pointer;
+}
+.itemNavbar p{
+	color: #fff;
+}
+@media (min-width: 992px){
+	.itemNavbar{
+		display: flex;
+	}
+}
