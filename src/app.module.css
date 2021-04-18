@@ -22,7 +22,9 @@ nav{
 	justify-content: flex-end;
 	position: absolute;
 	top: 32px;
-	right: -250px;
+	right: -252px;
+	border: 1px solid #000;
+	border-radius: 10px;
 	transition: all 1s ease;
 	overflow: hidden;
 }
@@ -46,6 +48,13 @@ nav.showNavbar{
 	}
 }
 @media (min-width: 992px){
+	nav,
+	nav.showNavbar{
+		width: 960px;
+		border: none;
+	}
+}
+@media (min-width: 1200px){
 	nav,
 	nav.showNavbar{
 		width: 1140px;

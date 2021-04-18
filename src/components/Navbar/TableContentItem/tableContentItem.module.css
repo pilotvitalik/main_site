@@ -6,6 +6,9 @@
 	width: auto;
 	height: auto;
 }
+nav .itemNavbar:not(:last-child){
+	border-bottom: 1px solid grey;
+}
 .itemNavbar:hover{
 	cursor: pointer;
 }
@@ -14,11 +17,12 @@
 	width: auto;
 	margin-right: 13px;
 	padding: 10px 0;
-	color: #fff;
+	color: #000;
 }
 @media (min-width: 992px){
 	.itemNavbar p{
 		margin-right: 0;
+		color: #fff;
 	}
 	nav .itemNavbar:first-child,
 	nav.showNavbar .itemNavbar:first-child{
