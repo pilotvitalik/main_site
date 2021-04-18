@@ -1,6 +1,7 @@
 .itemNavbar{
 	display: flex;
 	flex-direction: column;
+	align-items: flex-end;
 	position: relative;
 	width: auto;
 	height: auto;
@@ -9,5 +10,22 @@
 	cursor: pointer;
 }
 .itemNavbar p{
+	display: inline-flex;
+	width: auto;
+	margin-right: 13px;
+	padding: 10px 0;
 	color: #fff;
+}
+@media (min-width: 992px){
+	.itemNavbar p{
+		margin-right: 0;
+	}
+	nav .itemNavbar:first-child,
+	nav.showNavbar .itemNavbar:first-child{
+		margin-left: 10px
+	}
+	nav .itemNavbar:last-child,
+	nav.showNavbar .itemNavbar:last-child{
+		margin-right: 10px
+	}
 }

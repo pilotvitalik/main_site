@@ -1,14 +1,107 @@
 import React, { Component } from 'react';
 import Navbar from './components/Navbar/Navbar';
+import TableContentItem from './components/Navbar/TableContentItem/TableContentItem';
 
-import './App.modules.css';
+import styles from './app.module.css';
+
+const listNavbar = [
+  {
+    id: 'navbar_1',
+    name: 'Портфолио',
+    sub_list: [
+      {
+        id: 'item_1',
+        name: 'NodeJS',
+        subItem: [
+          {
+            id: 'sub_item_1',
+            name: 'Загрузить файл',
+            url: 'work/nodejs/file_to_server',
+          },
+          {
+            id: 'sub_item_2',
+            name: 'Скачать файл',
+            url: 'work/nodejs/download_file?user="user_name" + "user_id"',
+          },
+        ],
+      },
+    ]
+  },
+  {
+    id: 'navbar_2',
+    name: 'Портфолио',
+    sub_list: [
+      {
+        id: 'item_2',
+        name: 'NodeJS',
+        subItem: [
+          {
+            id: 'sub_item_1',
+            name: 'Загрузить файл',
+            url: 'work/nodejs/file_to_server',
+          },
+          {
+            id: 'sub_item_2',
+            name: 'Скачать файл',
+            url: 'work/nodejs/download_file?user="user_name" + "user_id"',
+          },
+        ],
+      },
+    ]
+  },
+  {
+    id: 'navbar_3',
+    name: 'Портфолио',
+    sub_list: [
+      {
+        id: 'item_3',
+        name: 'NodeJS',
+        subItem: [
+          {
+            id: 'sub_item_1',
+            name: 'Загрузить файл',
+            url: 'work/nodejs/file_to_server',
+          },
+          {
+            id: 'sub_item_2',
+            name: 'Скачать файл',
+            url: 'work/nodejs/download_file?user="user_name" + "user_id"',
+          },
+        ],
+      },
+    ]
+  }
+];
 
 class App extends Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      isShowMenu: false,
+    };
+    this.showMenu = this.showMenu.bind(this);
+  }
+
+  showMenu(e){
+    console.log(e.currentTarget);
+    e.currentTarget.classList.toggle('rotateSVG');
+    this.setState(state => ({
+      isShowMenu: !state.isShowMenu
+    }));
+  }
+
   render(){
+    const listMenu = listNavbar.map((item) => 
+      <TableContentItem key={item.id} value={item.name} subItem={item.sub_list}/>
+    );
+
     return (
       <React.Fragment>
         <header>
-          <Navbar/>
+          <Navbar func={this.showMenu}/>
+          <nav className={this.state.isShowMenu ? styles.showNavbar : ''}>
+            {listMenu}
+          </nav>
         </header>
       </React.Fragment>
     )

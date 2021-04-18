@@ -1,4 +1,5 @@
 body{
+	height: auto;
 	padding: 0;
 	margin: 0;
 }
@@ -11,5 +12,7 @@ p{
 	display: block;
 	position: relative;
 	width: 100%;
+	min-height: 100vh;
 	height: auto;
+	overflow: hidden;
 }
