@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import Navbar from './components/Navbar/Navbar';
 import TableContentItem from './components/Navbar/TableContentItem/TableContentItem';
 
@@ -73,39 +73,29 @@ const listNavbar = [
   }
 ];
 
-class App extends Component{
-  constructor(props){
-    super(props);
-    this.state = {
-      isShowMenu: false,
-    };
-    this.showMenu = this.showMenu.bind(this);
-  }
+function App(){
+  const [isShowMenu, toggleIsShow] = useState(false);
 
-  showMenu(e){
-    console.log(e.currentTarget);
+  function showMenu(e){
     e.currentTarget.classList.toggle('rotateSVG');
-    this.setState(state => ({
-      isShowMenu: !state.isShowMenu
-    }));
+    toggleIsShow(!isShowMenu);
   }
 
-  render(){
-    const listMenu = listNavbar.map((item) => 
-      <TableContentItem key={item.id} value={item.name} subItem={item.sub_list}/>
-    );
+  const listMenu = listNavbar.map((item) => 
+    <TableContentItem key={item.id} value={item.name} subItem={item.sub_list}/>
+  );
 
-    return (
-      <React.Fragment>
-        <header>
-          <Navbar func={this.showMenu}/>
-          <nav className={this.state.isShowMenu ? styles.showNavbar : ''}>
-            {listMenu}
-          </nav>
-        </header>
-      </React.Fragment>
-    )
-  }  
+  return (
+    <React.Fragment>
+      <header>
+        <Navbar func={showMenu}/>
+        <nav className={isShowMenu ? styles.showNavbar : ''}>
+          {listMenu}
+        </nav>
+      </header>
+    </React.Fragment>
+  )
+
 }
 
 export default App;

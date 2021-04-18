@@ -1,39 +1,34 @@
-import React, { Component } from 'react';
+import React from 'react';
 import SubItem from './SubItem/SubItem';
+
+import { useDispatch } from 'react-redux';
 
 import style from './tableContentItem.module.css';
 
-class TableContent extends Component{
-	constructor(props){
-		super(props);
-		this.state = {
-			maxHeight: 0,
-		};
-		this.showSubItem = this.showSubItem.bind(this);
+function TableContent(props){
+  	const dispatch = useDispatch();
+
+  	function showSubItem(e){
+		dispatch({type: 'css/plusHeight', payload: ''});
+		setTimeout(() => {
+			dispatch({type: 'css/minusHeight', payload: ''});
+		}, 2000)
 	}
 
-	showSubItem(e){
-		this.setState(state => ({
-			maxHeight: '117',
-		}));
-	}
+	const items = props.subItem.map((item) => 
+		<SubItem 
+		key={item.id}
+		value={item.name}
+		data={item.subItem}/>
+	);
 
+	return(
+		<div className={style.itemNavbar}>
+			<p onMouseOver={showSubItem}>{props.value}</p>
+			{items}
+		</div>
+	);
 
-	render(){
-		const items = this.props.subItem.map((item) => 
-			<SubItem 
-			key={item.id}
-			value={item.name}
-			data={item.subItem}/>
-		);
-
-		return(
-			<div className={style.itemNavbar}>
-				<p onMouseOver={this.showSubItem}>{this.props.value}</p>
-				{items}
-			</div>
-		);
-	}
 }
 
 export default TableContent;
