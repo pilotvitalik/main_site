@@ -36,19 +36,28 @@ const AppStyles = makeStyles((theme) => ({
     width: '32px',
     height: '32px',
     color: '#fff',
+    transition: 'all .3s linear',
     '@media(min-width: 992px)': {
       display: 'none',
     },
     '&:hover':  {
       cursor: 'pointer',
+    },
+    '&.rotateSVG': {
+      transform: 'rotate(90deg)',
     }
   },
 }));
 
 function Hamburger(){
   const classes = AppStyles();
+
+  function showMenu(e){
+    e.target.classList.toggle('rotateSVG');
+  }
+
   return(
-    <MenuIcon className={classes.root}/>
+    <MenuIcon className={classes.root} onClick={showMenu}/>
   );
 }
 
