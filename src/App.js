@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Navbar from './components/Navbar/Navbar';
-import TableContentItem from './components/Navbar/TableContentItem/TableContentItem';
 
-import styles from './app.module.css';
+import from './app.module.css';
 
 const listNavbar = [
   {
@@ -74,24 +73,10 @@ const listNavbar = [
 ];
 
 function App(){
-  const [isShowMenu, toggleIsShow] = useState(false);
-
-  function showMenu(e){
-    e.currentTarget.classList.toggle('rotateSVG');
-    toggleIsShow(!isShowMenu);
-  }
-
-  const listMenu = listNavbar.map((item) => 
-    <TableContentItem key={item.id} value={item.name} subItem={item.sub_list}/>
-  );
-
   return (
     <React.Fragment>
       <header>
         <Navbar func={showMenu}/>
-        <nav className={isShowMenu ? styles.showNavbar : ''}>
-          {listMenu}
-        </nav>
       </header>
     </React.Fragment>
   )
