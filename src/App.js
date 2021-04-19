@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from './components/Navbar/Navbar';
 
-import from './app.module.css';
+import './app.module.css';
 
 const listNavbar = [
   {
@@ -76,7 +76,7 @@ function App(){
   return (
     <React.Fragment>
       <header>
-        <Navbar func={showMenu}/>
+        <Navbar/>
       </header>
     </React.Fragment>
   )
