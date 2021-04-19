@@ -3,8 +3,6 @@ import React from 'react';
 import MenuIcon from '@material-ui/icons/Menu';
 import { makeStyles } from '@material-ui/core/styles';
 
-import './hamburgerBtn.module.css';
-
 const AppStyles = makeStyles((theme) => ({
   root: {
     width: '32px',
