@@ -3,7 +3,7 @@ import React from 'react';
 import MenuIcon from '@material-ui/icons/Menu';
 import { makeStyles } from '@material-ui/core/styles';
 
-import './navbar.module.css';
+import './hamburgerBtn.module.css';
 
 const AppStyles = makeStyles((theme) => ({
   root: {
@@ -11,8 +11,8 @@ const AppStyles = makeStyles((theme) => ({
     height: '32px',
     color: '#fff',
     transition: 'all .3s linear',
-    'margin-left': 'auto',
-    'margin-right': '5px',
+    'margin-left': '5px',
+    'margin-right': 'auto',
     '@media(min-width: 992px)': {
       display: 'none',
     },
@@ -25,7 +25,7 @@ const AppStyles = makeStyles((theme) => ({
   },
 }));
 
-function Navbar(props){
+function HamburgerBtn(props){
   const classes = AppStyles();
 
   return(
@@ -33,4 +33,4 @@ function Navbar(props){
   );
 }
 
-export default Navbar;
+export default HamburgerBtn;

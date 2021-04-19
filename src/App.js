@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from './components/Navbar/Navbar';
+import HamburgerBtn from './components/header/HamburgerBtn/HamburgerBtn';
 
 import './app.module.css';
 
@@ -76,7 +76,7 @@ function App(){
   return (
     <React.Fragment>
       <header>
-        <Navbar/>
+        <HamburgerBtn/>
       </header>
     </React.Fragment>
   )
