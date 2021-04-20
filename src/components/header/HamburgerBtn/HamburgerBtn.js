@@ -9,7 +9,7 @@ const AppStyles = makeStyles((theme) => ({
     height: '32px',
     color: '#fff',
     transition: 'all .3s linear',
-    'margin-left': '5px',
+    'margin-left': '7px',
     'margin-right': 'auto',
     '@media(min-width: 992px)': {
       display: 'none',
