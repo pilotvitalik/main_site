@@ -6,13 +6,13 @@ import { useSelector } from 'react-redux';
 
 function Navbar(){
 	const list = useSelector(state => state.header.navbar);
-	console.log(list);
+	const isShow = useSelector(state => state.header.isShowNavbar);
 
 	const items = list.map(item =>
 		<p key={item.id} className={style.linkItem}>{item.name}</p>
 	);
 	return(
-		<nav>
+		<nav className={isShow ? style.showNavbar : ''}>
 			{items}
 		</nav>
 	);

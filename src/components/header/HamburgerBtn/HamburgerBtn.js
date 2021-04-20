@@ -3,6 +3,8 @@ import React from 'react';
 import MenuIcon from '@material-ui/icons/Menu';
 import { makeStyles } from '@material-ui/core/styles';
 
+import { useDispatch } from 'react-redux';
+
 const AppStyles = makeStyles((theme) => ({
   root: {
     width: '32px',
@@ -25,9 +27,14 @@ const AppStyles = makeStyles((theme) => ({
 
 function HamburgerBtn(props){
   const classes = AppStyles();
+  const dispatch = useDispatch();
+
+  function showHideNavbar(e){
+    dispatch({type: 'header/visibleNavbar', payload: ''});
+  }
 
   return(
-    <MenuIcon className={classes.root} onClick={props.func}/>
+    <MenuIcon className={classes.root} onClick={showHideNavbar}/>
   );
 }
 

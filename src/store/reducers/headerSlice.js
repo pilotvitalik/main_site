@@ -67,12 +67,21 @@ const initialState = {
 	    ]
 	  }
 	],
+	isShowNavbar: false,
 }
 
 export default function headerReducer(state = initialState, action){
 	switch(action.type){
 		case 'header/navbar':
-			return state;
+			return {
+				...state,
+				navbar: state.navbar,
+			};
+		case 'header/visibleNavbar':
+			return {
+				...state,
+				isShowNavbar: !state.isShowNavbar,
+			};
 		default:
 			return state;
 	}
