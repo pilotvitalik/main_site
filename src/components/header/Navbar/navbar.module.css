@@ -4,7 +4,7 @@ nav{
 	position: absolute;
 	width: 100%;
 	height: auto;
-	top: 32px;
+	top: 43px;
 	left: -100%;
 	transition: left 1s ease;
 	background: #d5d5d5;
@@ -13,9 +13,9 @@ nav{
 	display: inline-flex;
 	justify-content: flex-start;
 	align-items: center;
-	width: calc(100% - 10px);
+	width: calc(100% - 13px);
 	height: 50px;
-	padding-left: 10px;
+	padding-left: 13px;
 }
 .linkItem:hover{
 	cursor: pointer;
