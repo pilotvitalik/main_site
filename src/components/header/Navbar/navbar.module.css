@@ -16,10 +16,17 @@ nav{
 	width: calc(100% - 13px);
 	height: 50px;
 	padding-left: 13px;
+	font-family: 'Roboto', sans-serif;
+	color: #fff;
+	text-decoration: none;
+}
+.hiddenMainPage{
+	display: none;
 }
 .linkItem:hover{
 	cursor: pointer;
 	color: #fff;
+	text-decoration: none;
 }
 .linkItem:after{
 	content: '';

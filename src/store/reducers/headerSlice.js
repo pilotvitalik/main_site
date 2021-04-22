@@ -1,8 +1,16 @@
 const initialState = {
 	navbar: [
+		{
+			id: 'navbar_1',
+			name: 'Главная',
+			url: '/',
+			exact: true,
+		},
 	  {
-	    id: 'navbar_1',
+	    id: 'navbar_2',
 	    name: 'Портфолио',
+		url: '/works',
+		exact: true,
 	    sub_list: [
 	      {
 	        id: 'item_1',
@@ -23,8 +31,10 @@ const initialState = {
 	    ]
 	  },
 	  {
-	    id: 'navbar_2',
+	    id: 'navbar_3',
 	    name: 'Портфолио',
+		url: '/works',
+		exact: true,
 	    sub_list: [
 	      {
 	        id: 'item_2',
@@ -45,8 +55,10 @@ const initialState = {
 	    ]
 	  },
 	  {
-	    id: 'navbar_3',
+	    id: 'navbar_4',
 	    name: 'Портфолио',
+		url: '/works',
+		exact: true,
 	    sub_list: [
 	      {
 	        id: 'item_3',
@@ -87,6 +99,6 @@ export default function headerReducer(state = initialState, action){
 	}
 }
 
-export function initNavbar(dispatch, getState){
+export function initNavbar(dispatch){
 		dispatch({type: 'header/navbar', payload: ''});
 }
