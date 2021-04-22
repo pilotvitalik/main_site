@@ -1,11 +1,5 @@
 const initialState = {
 	navbar: [
-		{
-			id: 'navbar_1',
-			name: 'Главная',
-			url: '/',
-			exact: true,
-		},
 	  {
 	    id: 'navbar_2',
 	    name: 'Портфолио',
@@ -30,54 +24,6 @@ const initialState = {
 	      },
 	    ]
 	  },
-	  {
-	    id: 'navbar_3',
-	    name: 'Портфолио',
-		url: '/works',
-		exact: true,
-	    sub_list: [
-	      {
-	        id: 'item_2',
-	        name: 'NodeJS',
-	        subItem: [
-	          {
-	            id: 'sub_item_1',
-	            name: 'Загрузить файл',
-	            url: 'work/nodejs/file_to_server',
-	          },
-	          {
-	            id: 'sub_item_2',
-	            name: 'Скачать файл',
-	            url: 'work/nodejs/download_file?user="user_name" + "user_id"',
-	          },
-	        ],
-	      },
-	    ]
-	  },
-	  {
-	    id: 'navbar_4',
-	    name: 'Портфолио',
-		url: '/works',
-		exact: true,
-	    sub_list: [
-	      {
-	        id: 'item_3',
-	        name: 'NodeJS',
-	        subItem: [
-	          {
-	            id: 'sub_item_1',
-	            name: 'Загрузить файл',
-	            url: 'work/nodejs/file_to_server',
-	          },
-	          {
-	            id: 'sub_item_2',
-	            name: 'Скачать файл',
-	            url: 'work/nodejs/download_file?user="user_name" + "user_id"',
-	          },
-	        ],
-	      },
-	    ]
-	  }
 	],
 	isShowNavbar: false,
 }

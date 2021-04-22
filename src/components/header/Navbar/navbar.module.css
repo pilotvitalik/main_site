@@ -1,9 +1,9 @@
-nav{
+header nav{
 	display: flex;
 	flex-direction: column;
 	position: absolute;
 	width: 100%;
-	height: auto;
+	height: 100vh;
 	top: 43px;
 	left: -100%;
 	transition: left 1s ease;
@@ -38,24 +38,25 @@ nav{
 	background: #fff;
 	transition: width 1s ease;
 }
-nav .linkItem:not(:last-child){
+header nav .linkItem:not(:last-child){
 	border-bottom: 1px solid #fff;
 }
-nav.showNavbar{
+header nav.showNavbar{
 	left: 0;
 }
 @media (min-width: 992px){
-	nav{
+	header nav{
 		flex-direction: row;
 		flex-wrap: nowrap;
 		justify-content: space-around;
 		position: relative;
 		width: 960px;
+		height: auto;
 		margin: 0 auto;
 		top: unset;
 		left: unset;
 	}
-	nav.showNavbar{
+	header nav.showNavbar{
 		left: unset;
 	}
 	.linkItem{
@@ -64,15 +65,18 @@ nav.showNavbar{
 		padding-left: 0;
 	}
 
-	nav .linkItem:not(:last-child){
+	header nav .linkItem:not(:last-child){
 		border-bottom: none;
 	}
 	.linkItem:hover:after{
 		width: 100%;
 	}
+	.linkItem.activeLink:after{
+		width: 100%;
+	}
 }
 @media (min-width: 992px){
-	nav{
+	header nav{
 		width: 1140px;
 	}
 }

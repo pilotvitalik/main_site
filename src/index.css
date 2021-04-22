@@ -1,3 +1,6 @@
+*{
+	box-sizing: border-box;
+}
 body{
 	height: auto;
 	padding: 0;

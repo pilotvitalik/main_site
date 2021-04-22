@@ -10,9 +10,9 @@ function Navbar(){
 
 	const items = list.map((item, index) =>
 		<Link key={item.id}
-			  className={(location.pathname === '/' && index === 0) ?
-				  style.linkItem + ' ' + style.hiddenMainPage :
-				  style.linkItem}
+			  className={(location.pathname === item.url) ?
+			  	style.activeLink + ' ' + style.linkItem :
+			  	style.linkItem}
 			  to={item.url}>
 				{item.name}
 		</Link>
