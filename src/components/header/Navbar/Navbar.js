@@ -18,7 +18,6 @@ function Navbar(){
 		</Link>
 	);
 
-	console.log(location)
 	return(
 		<nav className={isShow ? style.showNavbar : ''}>
 			{items}
