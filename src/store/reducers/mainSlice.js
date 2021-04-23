@@ -17,6 +17,15 @@ const initialState = {
             ],
         }
     ],
+    categories: [
+        {
+            id: 'cat_1',
+            name: 'NodeJS',
+            url_page: '/nodejs',
+            url_image: '/img/categories/node.svg',
+            alt: 'NodeJs',
+        }
+    ]
 };
 
 export default function mainReducer(state = initialState, action){
@@ -26,6 +35,11 @@ export default function mainReducer(state = initialState, action){
                 ...state,
                 navigate: state.navigate,
             };
+        case 'main/categories':
+            return {
+                ...state,
+                categories: state.categories,
+            }
         default:
             return state;
     }

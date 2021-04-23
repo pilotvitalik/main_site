@@ -1,24 +1,42 @@
+/*
+* Browsers: last 4 version
+*/
+
 header nav{
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: column;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
 	position: absolute;
 	width: 100%;
 	height: 100vh;
 	top: 43px;
 	left: -100%;
+	-webkit-transition: left 1s ease;
+	-o-transition: left 1s ease;
 	transition: left 1s ease;
 	background: #d5d5d5;
 }
 .linkItem{
+	display: -webkit-inline-box;
+	display: -ms-inline-flexbox;
 	display: inline-flex;
-	justify-content: flex-start;
-	align-items: center;
+	-webkit-box-pack: start;
+	    -ms-flex-pack: start;
+	        justify-content: flex-start;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 	width: calc(100% - 13px);
 	height: 50px;
 	padding-left: 13px;
 	font-family: 'Roboto', sans-serif;
 	color: #fff;
 	text-decoration: none;
+	overflow: hidden;
 }
 .hiddenMainPage{
 	display: none;
@@ -36,7 +54,9 @@ header nav{
 	bottom: 0;
 	left: 0;
 	background: #fff;
-	transition: width 1s ease;
+	-webkit-transition: width 1s ease;
+	-o-transition: width 1s ease;
+	transition: all 1s ease;
 }
 header nav .linkItem:not(:last-child){
 	border-bottom: 1px solid #fff;
@@ -46,9 +66,13 @@ header nav.showNavbar{
 }
 @media (min-width: 992px){
 	header nav{
-		flex-direction: row;
-		flex-wrap: nowrap;
-		justify-content: space-around;
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: normal;
+		    -ms-flex-direction: row;
+		        flex-direction: row;
+		-ms-flex-wrap: nowrap;
+		    flex-wrap: nowrap;
+		    justify-content: center;
 		position: relative;
 		width: 960px;
 		height: auto;
