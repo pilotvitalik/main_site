@@ -2,20 +2,22 @@ const initialState = {
     navigate: [
         {
             id: 'navigate_1',
+            url: '/',
+            name_url: 'Главная',
+            key_word: '',
+        },
+        {
+            id: 'navigate_2',
             url: '/works',
-            list_pages: [
-                {
-                    id: 'page_1',
-                    url: '/',
-                    name: 'Главная',
-                },
-                {
-                    id: 'page_2',
-                    url: '/works',
-                    name: 'Портфолио',
-                }
-            ],
-        }
+            name_url: 'Портфолио',
+            key_word: 'works',
+        },
+        {
+            id: 'navigate_3',
+            url: '/nodejs',
+            name_url: 'NodeJS',
+            key_word: 'nodejs',
+        },
     ],
     categories: [
         {

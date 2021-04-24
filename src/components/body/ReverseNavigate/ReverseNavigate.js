@@ -5,23 +5,29 @@ import { useSelector } from "react-redux";
 function ReverseNavigate(){
     const navigation = useSelector(state => state.main.navigate);
     const location = useLocation();
-    const activeUrl = location.pathname;
+    const arrPath = location.pathname.split('/');
+    let reverceUrl = '';
 
-    const listNavigate = navigation.map(item =>
-        (item.url === activeUrl) ? item.list_pages : ''
+    const listNavigate = arrPath.map((item, index, arrPath) => 
+        createLinks(item, index, arrPath)
     );
 
-    const reverceUrl = listNavigate[0].map((page, index) =>
-        (index < listNavigate[0].length - 1) ?
-            <React.Fragment key={page.id}>
-                <Link data-id={index} to={page.url}>{page.name}</Link><span>/</span>
-            </React.Fragment> :
-            <Link key={page.id} to={page.url} data-id={index}>{page.name}</Link>
-    )
+    function createLinks(item, index, arrPath){
+        return reverceUrl = navigation.map(page =>
+            (index < arrPath.length - 1) ?
+                (page.key_word === item) ? 
+                    <React.Fragment key={page.id}>
+                        <Link to={page.url}>{page.name_url}</Link><span>/</span>
+                    </React.Fragment> : '' :
+                    (page.key_word === item) ?
+                    <Link key={page.id} data-id={item} to={page.url}>{page.name_url}</Link>
+                    : ''
+        )
+    }
 
     return(
         <nav>
-            {reverceUrl}
+            {listNavigate}
         </nav>
     )
 }
