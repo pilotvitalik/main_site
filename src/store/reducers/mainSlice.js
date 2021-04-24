@@ -22,25 +22,43 @@ const initialState = {
     categories: [
         {
             id: 'cat_1',
-            name: 'NodeJS',
             url_page: '/nodejs',
             url_image: '/img/categories/node.svg',
             alt: 'NodeJs',
-        },
-    ]
+            name: 'NodeJS'
+        }
+    ],
+    sub_categories: {
+        node_js: [
+            {
+                id: 'nodejs_1',
+                name: 'Загрузить файл',
+                url_page: '/nodejs',
+                url_image: '/file_to_server',
+                alt: 'upload',
+            },
+            {
+                id: 'nodejs_2',
+                name: 'Скачать файл',
+                url_page: '/nodejs',
+                url_image: '/download_file',
+                alt: 'download',
+            },  
+        ],
+    }
 };
 
 export default function mainReducer(state = initialState, action){
     switch(action.type){
-        case 'main/reverseNavigate':
-            return {
-                ...state,
-                navigate: state.navigate,
-            };
         case 'main/categories':
             return {
                 ...state,
                 categories: state.categories,
+            }
+        case 'main/workNode':
+            return {
+                ...state,
+                categories: state.sub_categories.node_js
             }
         default:
             return state;
