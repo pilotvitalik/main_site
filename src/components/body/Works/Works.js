@@ -9,7 +9,7 @@ function Works(){
 	const location = useLocation();
 	
 	const listCat = categories.map(item => 
-		<Link key={item.id} to={location.pathname + item.url_page}>
+		<Link key={item.id} to={location.pathname + item.url_page} className={style.cat}>
 			<img src={process.env.PUBLIC_URL + item.url_image} alt={item.alt}/>
 			<span>{item.name}</span>
 		</Link>

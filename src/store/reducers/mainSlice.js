@@ -24,7 +24,7 @@ const initialState = {
             url_page: '/nodejs',
             url_image: '/img/categories/node.svg',
             alt: 'NodeJs',
-        }
+        },
     ]
 };
 
