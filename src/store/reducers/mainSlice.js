@@ -58,7 +58,7 @@ export default function mainReducer(state = initialState, action){
         case 'main/workNode':
             return {
                 ...state,
-                categories: state.sub_categories.node_js
+                node: state.sub_categories.node_js,
             }
         default:
             return state;

@@ -12,10 +12,10 @@ function Works(){
 			<ReverseNavigate/>
 			<Switch>
 				<Route exact path={path}>
-					<ListWorks action={'main/categories'}/>
+					<ListWorks action={'main/categories'} type={'categories'}/>
 				</Route>
 				<Route path={`${path}/nodejs`}>
-					<ListWorks action={'main/workNode'}/>
+					<ListWorks action={'main/workNode'} type={'node'}/>
 				</Route>
 			</Switch>
         </div>

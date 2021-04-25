@@ -6,14 +6,13 @@ function ReverseNavigate(){
     const navigation = useSelector(state => state.main.navigate);
     const location = useLocation();
     const arrPath = location.pathname.split('/');
-    let reverceUrl = '';
 
     const listNavigate = arrPath.map((item, index, arrPath) => 
         createLinks(item, index, arrPath)
     );
 
     function createLinks(item, index, arrPath){
-        return reverceUrl = navigation.map(page =>
+        return navigation.map(page =>
             (index < arrPath.length - 1) ?
                 (page.key_word === item) ? 
                     <React.Fragment key={page.id}>

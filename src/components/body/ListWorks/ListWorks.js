@@ -4,13 +4,12 @@ import { Link, useRouteMatch } from 'react-router-dom';
 import style from './listWorks.module.css';
 
 function ListWorks(props){
+	let {url} = useRouteMatch();
 	const dispatch = useDispatch();
 
 	dispatch({type: props.action, payload: ''});
 
-	const categories = useSelector(state => state.main.categories);
-	
-	let {url} = useRouteMatch();
+	const categories = useSelector(state => state.main[props.type]);
 
 	const listCat = categories.map(item => 
 		<Link key={item.id} to={`${url}${item.url_page}`} className={style.cat}>
