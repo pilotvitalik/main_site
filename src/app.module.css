@@ -1,0 +1,24 @@
+header{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	position: relative;
+	width: 100%;
+	height: auto;
+	padding: 10px 0;
+	margin: 0;
+	background: #d5d5d5;
+}
+main{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: auto;
+	height: auto;
+}
+@media (min-width: 992px){
+	header{
+		padding: 0;
+	}
+}
