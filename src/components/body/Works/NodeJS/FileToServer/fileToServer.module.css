@@ -1,0 +1,34 @@
+.wrapperFiles{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	position: relative;
+	width: 100%;
+	height: auto;
+	padding: 0 10px;
+}
+.uploadBlock,
+.listUploads{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	position: relative;
+	width: 100%;
+	height: auto;
+}
+.dropDownBlock{
+
+}
+@media (min-width: 768px){
+	.uploadBlock,
+	.listUploads{
+		width: 50%;
+	}
+}
+@media (min-width: 992px){
+	.wrapperFiles{
+		flex-wrap: nowrap;
+		padding: 0;
+	}
+}
