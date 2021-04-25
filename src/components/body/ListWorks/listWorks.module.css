@@ -46,6 +46,10 @@
 .cat:hover span{
 	color: #959595;
 }
+.cat.subCat img{
+	width: 90px;
+	filter: grayscale(1);
+}
 @media (min-width: 992px){
 	.categories{
 		justify-content: flex-start;

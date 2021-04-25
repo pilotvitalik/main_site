@@ -25,7 +25,8 @@ const initialState = {
             url_page: '/nodejs',
             url_image: '/img/categories/node.svg',
             alt: 'NodeJs',
-            name: 'NodeJS'
+            name: 'NodeJS',
+            class: '',
         }
     ],
     sub_categories: {
@@ -33,16 +34,18 @@ const initialState = {
             {
                 id: 'nodejs_1',
                 name: 'Загрузить файл',
-                url_page: '/nodejs',
-                url_image: '/file_to_server',
+                url_page: '/file_to_server',
+                url_image: '/img/sub_categories/nodejs/upload.svg',
                 alt: 'upload',
+                class: 'subCat',
             },
             {
                 id: 'nodejs_2',
                 name: 'Скачать файл',
-                url_page: '/nodejs',
-                url_image: '/download_file',
+                url_page: '/download_file',
+                url_image: '/img/sub_categories/nodejs/download.svg',
                 alt: 'download',
+                class: 'subCat',
             },  
         ],
     }
