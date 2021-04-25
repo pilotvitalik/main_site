@@ -14,9 +14,15 @@ const initialState = {
         },
         {
             id: 'navigate_3',
-            url: '/nodejs',
+            url: '/works/nodejs',
             name_url: 'NodeJS',
             key_word: 'nodejs',
+        },
+        {
+            id: 'navigate_4',
+            url: '/works/nodejs/file_to_server',
+            name_url: 'Закачать файл',
+            key_word: 'file_to_server',
         },
     ],
     categories: [
@@ -48,7 +54,19 @@ const initialState = {
                 class: 'subCat',
             },  
         ],
-    }
+    },
+    nodejs_projects:[
+        {
+            id: 'node_project_1',
+            url: '/works/nodejs/file_to_server',
+            component: 'file_to_server',
+        },
+        {
+            id: 'node_project_1',
+            url: '/works/nodejs/download_file',
+            component: 'download_file',
+        },
+    ],
 };
 
 export default function mainReducer(state = initialState, action){
@@ -62,6 +80,11 @@ export default function mainReducer(state = initialState, action){
             return {
                 ...state,
                 node: state.sub_categories.node_js,
+            }
+        case 'main/nodeProjects':
+            return {
+                ...state,
+                nodeProject: state.nodejs_projects,
             }
         default:
             return state;

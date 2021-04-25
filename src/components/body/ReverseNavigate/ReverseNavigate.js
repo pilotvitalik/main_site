@@ -6,7 +6,7 @@ function ReverseNavigate(){
     const navigation = useSelector(state => state.main.navigate);
     const location = useLocation();
     const arrPath = location.pathname.split('/');
-
+    console.log(arrPath);
     const listNavigate = arrPath.map((item, index, arrPath) => 
         createLinks(item, index, arrPath)
     );
