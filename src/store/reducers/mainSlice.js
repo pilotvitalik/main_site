@@ -67,6 +67,14 @@ const initialState = {
             component: 'download_file',
         },
     ],
+    projects_img:{
+     nodejs: {
+         uploadFile: {
+             drag_drop: '/img/projects/nodejs/upload/upload_drag_drop.svg',
+             alt_drag_drop: 'Загрузить файл'
+         }
+     }
+    }
 };
 
 export default function mainReducer(state = initialState, action){
@@ -85,6 +93,11 @@ export default function mainReducer(state = initialState, action){
             return {
                 ...state,
                 nodeProject: state.nodejs_projects,
+            }
+        case 'main/nodeUploadFile':
+            return {
+                ...state,
+                uploadFiles: state.projects_img.nodejs.uploadFile,
             }
         default:
             return state;
