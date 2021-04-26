@@ -72,9 +72,8 @@
 .wrapperFiles form label:hover{
 	cursor: pointer;
 }
-/*a09f9f*/
 .highlight{
-
+	border-color: #a09f9f;
 }
 @media (min-width: 768px){
 	.uploadBlock,
