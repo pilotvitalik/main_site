@@ -45,7 +45,7 @@ function FiletoServer(){
 
 	console.log(files);
 	const listFiles = files.map((item, index) =>
-		<File key={item.id} file={item.file} ind={index}/>
+		<File key={item.id} file={item.file} ind={index} idInput={item.id}/>
 	);
 
 	return(

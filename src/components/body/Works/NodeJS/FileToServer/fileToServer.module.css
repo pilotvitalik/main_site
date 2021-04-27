@@ -46,7 +46,7 @@
 	height: auto;
 	margin-bottom: 0;
 }
-.wrapperFiles form{
+.wrapperFiles>form{
 	display: flex;
 	flex-direction: column;
 	position: relative;
@@ -54,11 +54,11 @@
 	height: auto;
 	margin-top: 15px;
 }
-.wrapperFiles form input{
+.wrapperFiles>form>input{
 	position: absolute;
 	opacity: 0;
 }
-.wrapperFiles form label{
+.wrapperFiles>form>label{
 	display: inline-flex;
 	justify-content: center;
 	align-items: center;
@@ -69,7 +69,7 @@
 	background: #d5d5d5;
 	border-radius: 20px;
 }
-.wrapperFiles form label:hover{
+.wrapperFiles>form>label:hover{
 	cursor: pointer;
 }
 .highlight{
@@ -82,7 +82,56 @@
 	font-family: 'Roboto', sans-serif;
 }
 .listFiles{
-
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	width: 100%;
+	height: auto;
+}
+.itemFile{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	width: 100%;
+	max-width: 350px;
+	height: auto;
+}
+.listFiles .itemFile:not(:last-child){
+	margin-bottom: 10px;
+}
+.itemFile p:first-child{
+	margin-right: 7px;
+}
+.itemFile p:nth-child(2){
+	margin-right: 7px;
+}
+.itemFile p:last-child{
+	margin-right: 0;
+	margin-left: auto;
+}
+.itemFile form{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	width: auto;
+	height: auto;
+	margin: 0;
+}
+.itemFile form input{
+	position: absolute;
+	opacity: 0;
+	pointer-events: none;
+}
+.itemFile form label{
+	display: inline-block;
+	position: relative;
+	width: 15px;
+	height: 15px;
+	margin-right: 7px;
+	border: 1px solid #d5d5d5;
 }
 @media (min-width: 768px){
 	.uploadBlock,
@@ -91,6 +140,13 @@
 	}
 	.uploadBlock{
 		height: 400px;
+	}
+	.listFiles{
+		width: 90%;
+		margin: 0 auto;
+	}
+	.itemFile{
+		max-width: 450px;
 	}
 }
 @media (min-width: 992px){
