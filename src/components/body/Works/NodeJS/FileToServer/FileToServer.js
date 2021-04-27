@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
+import File from './File/File';
 import style from './fileToServer.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 
 function FiletoServer(){
-	console.log('FiletoServer');
-	const globalArr = [];
-
 	let dispatch = useDispatch();
 	dispatch({type: 'main/nodeUploadFile', payload: ''});
 
 	const images = useSelector(state => state.main.uploadFiles);
+	const files = useSelector(state => state.upload.listFiles);
+
 	const [isHighlight, setHighlight] = useState('');
-	const fil = useSelector(state => state.upload);
-	console.log(fil);
+
 	function fileDragEnter(e){
 		e.preventDefault();
 		e.stopPropagation();
@@ -36,20 +35,18 @@ function FiletoServer(){
 		e.stopPropagation();
 		setHighlight('');
 		let file = e.dataTransfer.files[0];
-		console.log(file);
 		dispatch({type: 'upload/addFiles', payload: file});
-		globalArr.push(file);
-		console.log(globalArr);
 	}
 
 	function addFile(e){
 		const file = e.currentTarget.files[0];
-		console.log(file)
-		console.log(typeof file);
-		globalArr.push(file);
-		console.log(globalArr);
 		dispatch({type: 'upload/addFiles', payload: file});
 	}
+
+	console.log(files);
+	const listFiles = files.map((item, index) =>
+		<File key={item.id} file={item.file} ind={index}/>
+	);
 
 	return(
 		<div className={style.wrapperFiles}>
@@ -65,12 +62,16 @@ function FiletoServer(){
 						Перетащите файлы для отправки или
 					</p>
 				</div>
-			</div>
-			<div className={style.listUploads}>
-			<form>
+				<form>
 					<label htmlFor='uploadFile'>Загрузить файл</label>
 					<input id='uploadFile' type='file' name='upload_file' multiple onChange={addFile}/>
 				</form>
+			</div>
+			<div className={style.listUploads}>
+				<h3>Список файлов</h3>
+				<div className={style.listFiles}>
+					{listFiles}
+				</div>
 			</div>
 		</div>
 	);

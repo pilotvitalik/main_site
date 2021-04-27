@@ -2,6 +2,13 @@ const initialState = {
 	listFiles: [],
 };
 
+function addFiles(arr, file){
+	return{
+		id: `upload_${arr.length + 1}`,
+		file: file,
+	}
+}
+
 export default function uploadReducer(state = initialState, action){
 	switch(action.type){
 		case 'upload/addFiles':
@@ -9,7 +16,7 @@ export default function uploadReducer(state = initialState, action){
 				...state,
 				listFiles: [
 					...state.listFiles,
-					action.payload
+					addFiles(state.listFiles, action.payload)
 				],
 		}
 		default:

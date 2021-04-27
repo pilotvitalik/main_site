@@ -75,6 +75,15 @@
 .highlight{
 	border-color: #a09f9f;
 }
+.listUploads h3{
+	display: inline-block;
+	position: relative;
+	margin-top: 0;
+	font-family: 'Roboto', sans-serif;
+}
+.listFiles{
+
+}
 @media (min-width: 768px){
 	.uploadBlock,
 	.listUploads{
