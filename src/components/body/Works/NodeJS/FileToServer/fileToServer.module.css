@@ -140,6 +140,9 @@
 	display: inline-flex;
 	width: auto;
 }
+.itemFile form label.labelCheked{
+	border: 1px solid #000;
+}
 @media (min-width: 768px){
 	.uploadBlock,
 	.listUploads{
