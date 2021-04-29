@@ -39,8 +39,12 @@ function FiletoServer(){
 	}
 
 	function addFile(e){
-		const file = e.currentTarget.files[0];
-		dispatch({type: 'upload/addFiles', payload: file});
+		const files = e.currentTarget.files;
+		for (let key in files){
+			if (typeof files[key] === 'object'){
+				dispatch({type: 'upload/addFiles', payload: files[key]});
+			}
+		}
 	}
 
 	console.log(files);
