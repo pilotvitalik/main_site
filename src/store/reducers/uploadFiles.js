@@ -9,6 +9,16 @@ function addFiles(arr, file){
 	}
 }
 
+function deleteFile(arr, id){
+	let newArr = arr.slice();
+	newArr.forEach((item, index) => {
+		if (item.id === id){
+			newArr.splice(index, 1);
+		}
+	})
+	return newArr;
+}
+
 export default function uploadReducer(state = initialState, action){
 	switch(action.type){
 		case 'upload/addFiles':
@@ -18,7 +28,12 @@ export default function uploadReducer(state = initialState, action){
 					...state.listFiles,
 					addFiles(state.listFiles, action.payload)
 				],
-		}
+			};
+		case 'upload/deleteFile':
+			return {
+				...state,
+				listFiles: deleteFile(state.listFiles, action.payload),
+			}
 		default:
 			return state;
 	}

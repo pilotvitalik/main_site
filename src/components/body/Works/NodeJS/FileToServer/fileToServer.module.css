@@ -94,20 +94,10 @@
 	justify-content: flex-start;
 	align-items: center;
 	width: 100%;
-	max-width: 350px;
 	height: auto;
 }
 .listFiles .itemFile:not(:last-child){
 	margin-bottom: 10px;
-}
-.number{
-
-}
-.name{
-
-}
-.size{
-
 }
 .itemFile form{
 	display: flex;
@@ -131,6 +121,24 @@
 	height: 15px;
 	margin-right: 7px;
 	border: 1px solid #d5d5d5;
+}
+.itemFile form label:hover{
+	cursor: pointer;
+	border-color: #000;
+}
+.name{
+	margin-left: 7px;
+	margin-right: auto;
+}
+.size{
+	margin-left: auto;
+	margin-right: 7px;
+}
+.number,
+.name,
+.size{
+	display: inline-flex;
+	width: auto;
 }
 @media (min-width: 768px){
 	.uploadBlock,
