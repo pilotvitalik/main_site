@@ -71,6 +71,7 @@
 }
 .uploadBlock form>label:hover{
 	cursor: pointer;
+	background: #a0a0a0;
 }
 .highlight{
 	border-color: #a09f9f;
@@ -181,6 +182,23 @@
 	top: 7px;
 	left: 0;
 	background: #000;
+}
+.sendBtn{
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: auto;
+	height: auto;
+	margin: 10px 0;
+	padding: 10px;
+	color: #fff;
+	background: #d5d5d5;
+	border: none;
+	border-radius: 20px;
+}
+.sendBtn:hover{
+	cursor: pointer;
+	background: #a0a0a0;
 }
 @media (min-width: 768px){
 	.uploadBlock,

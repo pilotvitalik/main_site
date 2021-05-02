@@ -14,6 +14,12 @@ function FiletoServer(){
 
 	const [isHighlight, setHighlight] = useState('');
 
+	const listFiles = files.map((item, index) =>
+		(files.length > 0) ?
+		<File key={item.id} file={item.file} ind={index} idInput={item.id} isCheked={item.checked}/> :
+		''
+	);
+
 	function fileDragEnter(e){
 		e.preventDefault();
 		e.stopPropagation();
@@ -52,12 +58,17 @@ function FiletoServer(){
 		e.currentTarget.value = '';
 	}
 
-	console.log(fileSize);
-	const listFiles = files.map((item, index) =>
-		(files.length > 0) ?
-		<File key={item.id} file={item.file} ind={index} idInput={item.id}/> :
-		''
-	);
+	function sendFiles(e){
+		(e.currentTarget.dataset.files === 'all') ? sendAllFiles() : sendSpecificFiles();
+	}
+
+	function sendAllFiles(){
+		console.log('sendAllFiles');
+	}
+
+	function sendSpecificFiles(){
+		console.log('sendSpecificFiles');
+	}
 
 	return(
 		<div className={style.wrapperFiles}>
@@ -87,6 +98,13 @@ function FiletoServer(){
 					<React.Fragment>
 						<span className={style.separateLine}></span>
 						<FilesSize fileSize={fileSize}/>
+						<button 
+							type='button'
+							className={style.sendBtn}
+							data-files='all'
+							onClick={sendFiles}>
+							Выбрать все файлы и загрузить
+						</button>
 					</React.Fragment>
 				}
 			</div>

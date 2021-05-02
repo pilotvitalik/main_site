@@ -7,7 +7,18 @@ function addFiles(arr, file){
 	return{
 		id: `upload_${arr.length + 1}`,
 		file: file,
+		checked: false,
 	}
+}
+
+function checkedFile(arr, id){
+	let newArr = arr.slice();
+	newArr.forEach((item, index) => {
+		if (item.id === id){
+			item.checked = !item.checked
+		}
+	})
+	return newArr;
 }
 
 function deleteFile(arr, id){
@@ -40,6 +51,11 @@ export default function uploadReducer(state = initialState, action){
 					...state.listFiles,
 					addFiles(state.listFiles, action.payload)
 				],
+			};
+		case 'upload/checkedFiles':
+			return {
+				...state,
+				listFiles: checkedFile(state.listFiles, action.payload),
 			};
 		case 'upload/deleteFile':
 			return {

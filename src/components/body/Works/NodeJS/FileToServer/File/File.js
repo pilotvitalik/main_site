@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import Close from '@material-ui/icons/Close';
 import Mark from '@material-ui/icons/Check';
@@ -23,8 +23,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function File(props){
-    const [mark, setMark] = useState(false);
-
     const classes = useStyles();
     const dispatch = useDispatch();
     const kb = 1024;
@@ -36,14 +34,16 @@ function File(props){
         dispatch({type: 'upload/deleteFile', payload: e.currentTarget.dataset.fileId});
     }
 
+    console.log(props.isCheked);
+
     return(
         <div className={style.itemFile}>
             <form>
                 <label 
                     htmlFor={props.idInput}
-                    onClick={() => setMark(!mark)}
-                    className={mark ? style.labelCheked : ''}>
-                    {mark
+                    onClick={() => dispatch({type: 'upload/checkedFiles', payload: props.idInput})}
+                    className={props.isCheked ? style.labelCheked : ''}>
+                    {props.isCheked
                         ? <Mark className={classes.mark}/>
                         : ''}
                 </label>
