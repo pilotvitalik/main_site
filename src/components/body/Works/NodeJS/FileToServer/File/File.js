@@ -33,7 +33,6 @@ function File(props){
     let actSize = (props.file.size < 102400) ? `${(props.file.size/kb).toFixed(2)} КБ` : `${(props.file.size/mb).toFixed(2)} МБ`;
 
     function deleteFile(e){
-        console.log(e.currentTarget);
         dispatch({type: 'upload/deleteFile', payload: e.currentTarget.dataset.fileId});
     }
 

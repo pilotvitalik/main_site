@@ -80,6 +80,7 @@
 	position: relative;
 	margin-top: 0;
 	font-family: 'Roboto', sans-serif;
+	margin: 10px 0;
 }
 .listFiles{
 	display: flex;
@@ -87,6 +88,8 @@
 	position: relative;
 	width: 100%;
 	height: auto;
+	max-height: 250px;
+	overflow-y: auto;
 }
 .itemFile{
 	display: flex;
@@ -143,20 +146,68 @@
 .itemFile form label.labelCheked{
 	border: 1px solid #000;
 }
+.commonSize{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	position: relative;
+	width: 100%;
+	height: auto;
+}
+.commonSize p{
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: auto;
+	height: auto;
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+}
+.commonSize p:first-child{
+	margin-right: 7px;
+}
+.separateLine{
+	display: inline-block;
+	position: relative;
+	width: 100%;
+	height: 14px;
+	background: transparent;
+}
+.separateLine:before{
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 1px;
+	top: 7px;
+	left: 0;
+	background: #000;
+}
 @media (min-width: 768px){
 	.uploadBlock,
 	.listUploads{
 		width: 50%;
+	}
+	.listUploads h3{
+		margin-top: 0;
 	}
 	.uploadBlock{
 		height: 400px;
 	}
 	.listFiles{
 		width: 90%;
+		max-height: 368px;
 		margin: 0 auto;
 	}
 	.itemFile{
 		max-width: 450px;
+	}
+	.commonSize,
+	.separateLine{
+		width: 90%;
+		margin: 0 auto;
+	}
+	.separateLine:before{
+		width: 50%;
 	}
 }
 @media (min-width: 992px){

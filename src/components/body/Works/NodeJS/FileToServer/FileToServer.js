@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import File from './File/File';
+import FilesSize from './FilesSize/FilesSize';
 import style from './fileToServer.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -9,6 +10,7 @@ function FiletoServer(){
 
 	const images = useSelector(state => state.main.uploadFiles);
 	const files = useSelector(state => state.upload.listFiles);
+	const fileSize = useSelector(state => state.upload.common_size);
 
 	const [isHighlight, setHighlight] = useState('');
 
@@ -36,6 +38,7 @@ function FiletoServer(){
 		setHighlight('');
 		let file = e.dataTransfer.files[0];
 		dispatch({type: 'upload/addFiles', payload: file});
+		dispatch({type: 'upload/calcSize', payload: file.size});
 	}
 
 	function addFile(e){
@@ -43,11 +46,13 @@ function FiletoServer(){
 		for (let key in files){
 			if (typeof files[key] === 'object'){
 				dispatch({type: 'upload/addFiles', payload: files[key]});
+				dispatch({type: 'upload/calcSize', payload: files[key].size});
 			}
 		}
+		e.currentTarget.value = '';
 	}
 
-	console.log(files);
+	console.log(fileSize);
 	const listFiles = files.map((item, index) =>
 		(files.length > 0) ?
 		<File key={item.id} file={item.file} ind={index} idInput={item.id}/> :
@@ -78,6 +83,12 @@ function FiletoServer(){
 				<div className={style.listFiles}>
 					{listFiles}
 				</div>
+				{fileSize > 0 &&
+					<React.Fragment>
+						<span className={style.separateLine}></span>
+						<FilesSize fileSize={fileSize}/>
+					</React.Fragment>
+				}
 			</div>
 		</div>
 	);

@@ -1,9 +1,9 @@
 const initialState = {
 	listFiles: [],
+	common_size: 0,
 };
 
 function addFiles(arr, file){
-	console.log(arr, file);
 	return{
 		id: `upload_${arr.length + 1}`,
 		file: file,
@@ -27,6 +27,10 @@ function deleteFile(arr, id){
 	return newArr;
 }
 
+function calcFileSize(actVal, val){
+	return actVal + val;
+}
+
 export default function uploadReducer(state = initialState, action){
 	switch(action.type){
 		case 'upload/addFiles':
@@ -41,6 +45,11 @@ export default function uploadReducer(state = initialState, action){
 			return {
 				...state,
 				listFiles: deleteFile(state.listFiles, action.payload),
+			};
+		case 'upload/calcSize':
+			return {
+				...state, 
+				common_size: calcFileSize(state.common_size, action.payload),
 			}
 		default:
 			return state;

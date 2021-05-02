@@ -13,7 +13,6 @@ function Node(){
 	dispatch({type: 'main/nodeProjects', payload: ''});
 
 	const listProjects = useSelector(state => state.main.nodeProject);
-	console.log(listProjects);
 
 	const list = listProjects.map(item =>
 		<Route 
