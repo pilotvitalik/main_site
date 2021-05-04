@@ -18,10 +18,9 @@ function Files(){
 		: ''
 	);
 
-console.log(countFiles)
 	let btnTxt = (countFiles.files.length === 0)
 		? 'Выбрать все файлы и загрузить'
-		: `Загрузить ${countFiles.files.length} ${countFiles.act_name}`
+		: `Загрузить ${countFiles.files.length} ${countFiles.act_name}`;
 
 	function sendFiles(e){
 		(e.currentTarget.dataset.files === 'all') 
@@ -43,7 +42,7 @@ console.log(countFiles)
 					<button 
 						type='button'
 						className={style.sendBtn}
-						data-files='all'
+						data-files={countFiles.type_send}
 						onClick={sendFiles}>
 						{btnTxt}
 					</button>

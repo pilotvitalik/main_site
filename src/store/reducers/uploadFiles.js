@@ -10,6 +10,8 @@ const initialState = {
 	selectedFiles: {
 		files: [],
 		act_name: '',
+		type_send: 'all',
+
 	},
 };
 
@@ -45,6 +47,11 @@ function selectFile(obj, id){
 	} else {
 		updObj.act_name = 'файлов';
 	}
+	if (updObj.files.length > 0){
+		updObj.type_send = 'specific';
+	} else {
+		updObj.type_send = 'all';
+	}
 	return updObj;
 }
 
@@ -73,7 +80,6 @@ function checkFiles(arr, val){
 	let updArr = arr.slice();
 	if (val === 'all'){
 		updArr.forEach(item => {
-			console.log(item)
 			item.checked = true;
 		});
 	}
@@ -132,10 +138,15 @@ export default function uploadReducer(state = initialState, action){
 export function sendFilesToServer(dispatch, getState){
 	const store = getState();
 	const filesArr = store.upload.listFiles;
+	const isAllFiles = store.upload.selectedFiles.type_send;
 	const form = new FormData();
 	const updArr = filesArr.slice();
 	updArr.forEach(item => {
-		form.append(item.file.name, item.file);
+		if (isAllFiles === 'all'){
+			form.append(item.file.name, item.file);
+			return false;
+		}
+		if (item.checked) form.append(item.file.name, item.file);
 	});
 	axios.post('/send/file', form)
 		.then(res => {

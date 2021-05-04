@@ -50,7 +50,7 @@ function File(props){
             <p className={style.number}>{props.ind + 1}.</p>
             <p className={style.name}>{props.file.name.replace(/.[a-zA-Z]+$/g, '')}</p>
             <p className={style.size}>{actSize}</p>
-            <Close className={classes.closeBtn} data-file-id={props.idInput} onClick={deleteFile}/>
+            <Close className={classes.closeBtn} data-file-id={props.idInput} onClick={() => deleteFile}/>
         </div>
     );
 }
