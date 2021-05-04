@@ -83,7 +83,8 @@
 	font-family: 'Roboto', sans-serif;
 	margin: 10px 0;
 }
-.listFiles{
+.listFiles,
+.successBlock{
 	display: flex;
 	flex-direction: column;
 	position: relative;
@@ -200,6 +201,11 @@
 	cursor: pointer;
 	background: #a0a0a0;
 }
+.successBlock h3{
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+}
 @media (min-width: 768px){
 	.uploadBlock,
 	.listUploads{
@@ -211,7 +217,8 @@
 	.uploadBlock{
 		height: 400px;
 	}
-	.listFiles{
+	.listFiles,
+	.successBlock{
 		width: 90%;
 		max-height: 368px;
 		margin: 0 auto;
@@ -226,6 +233,11 @@
 	}
 	.separateLine:before{
 		width: 50%;
+	}
+	.successBlock{
+		justify-content: center;
+		max-height: unset;
+		height: 100%;
 	}
 }
 @media (min-width: 992px){

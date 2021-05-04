@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import Close from '@material-ui/icons/Close';
 import Mark from '@material-ui/icons/Check';
-import style from '../fileToServer.module.css';
+import style from '../../fileToServer.module.css';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
