@@ -107,6 +107,7 @@ export default function uploadReducer(state = initialState, action){
 			return {
 				...state,
 				listFiles: deleteFile(state.listFiles, action.payload),
+				selectedFiles: selectFile(state.selectedFiles, action.payload),
 			};
 		case 'upload/calcSize':
 			return {
