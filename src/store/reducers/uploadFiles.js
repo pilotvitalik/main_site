@@ -6,7 +6,11 @@ const initialState = {
 	isSend: {
 		status: '',
 		trigger: false,
-	}
+	},
+	selectedFiles: {
+		files: [],
+		act_name: '',
+	},
 };
 
 function addFiles(arr, file){
@@ -25,6 +29,23 @@ function checkedFile(arr, id){
 		}
 	})
 	return newArr;
+}
+
+function selectFile(obj, id){
+	let updObj = Object.assign({}, obj);
+	if (updObj.files.includes(id)){
+		updObj.files.splice(updObj.files.indexOf(id), 1);
+	} else {
+		updObj.files.push(id);
+	}
+	if (updObj.files.length === 1){
+		updObj.act_name = 'файл';
+	} else if (updObj.files.length >= 2 && updObj.files.length < 5){
+		updObj.act_name = 'файла';
+	} else {
+		updObj.act_name = 'файлов';
+	}
+	return updObj;
 }
 
 function deleteFile(arr, id){
@@ -80,6 +101,7 @@ export default function uploadReducer(state = initialState, action){
 			return {
 				...state,
 				listFiles: checkedFile(state.listFiles, action.payload),
+				selectedFiles: selectFile(state.selectedFiles, action.payload),
 			};
 		case 'upload/deleteFile':
 			return {

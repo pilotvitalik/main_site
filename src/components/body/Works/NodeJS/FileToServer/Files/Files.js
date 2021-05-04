@@ -10,12 +10,18 @@ function Files(){
 
 	const files = useSelector(state => state.upload.listFiles);
 	const fileSize = useSelector(state => state.upload.common_size);
+	const countFiles = useSelector(state => state.upload.selectedFiles);
 
 	const listFiles = files.map((item, index) =>
 		(files.length > 0)
 		? <File key={item.id} file={item.file} ind={index} idInput={item.id} isCheked={item.checked}/>
 		: ''
 	);
+
+console.log(countFiles)
+	let btnTxt = (countFiles.files.length === 0)
+		? 'Выбрать все файлы и загрузить'
+		: `Загрузить ${countFiles.files.length} ${countFiles.act_name}`
 
 	function sendFiles(e){
 		(e.currentTarget.dataset.files === 'all') 
@@ -39,7 +45,7 @@ function Files(){
 						className={style.sendBtn}
 						data-files='all'
 						onClick={sendFiles}>
-						Выбрать все файлы и загрузить
+						{btnTxt}
 					</button>
 				</React.Fragment>
 			}

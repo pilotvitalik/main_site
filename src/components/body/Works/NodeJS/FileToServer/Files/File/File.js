@@ -34,8 +34,6 @@ function File(props){
         dispatch({type: 'upload/deleteFile', payload: e.currentTarget.dataset.fileId});
     }
 
-    console.log(props.isCheked);
-
     return(
         <div className={style.itemFile}>
             <form>
