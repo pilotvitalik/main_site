@@ -141,6 +141,10 @@ export function sendFilesToServer(dispatch, getState){
 	const isAllFiles = store.upload.selectedFiles.type_send;
 	const form = new FormData();
 	const updArr = filesArr.slice();
+	let host = process.env.REACT_APP_HOSTNAME;
+	if (process.env.REACT_APP_PORT){
+		host = `${process.env.REACT_APP_HOSTNAME}:${process.env.REACT_APP_PORT}`;
+	}
 	updArr.forEach(item => {
 		if (isAllFiles === 'all'){
 			form.append(item.file.name, item.file);
@@ -148,7 +152,7 @@ export function sendFilesToServer(dispatch, getState){
 		}
 		if (item.checked) form.append(item.file.name, item.file);
 	});
-	axios.post('/send/file', form)
+	axios.post(`http://${host}${process.env.REACT_APP_UPLOAD_DIR}`, form)
 		.then(res => {
 			dispatch({type:'upload/sendServer', payload: 'success'});
 			console.log(res);
