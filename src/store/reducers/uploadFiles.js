@@ -141,24 +141,75 @@ export function sendFilesToServer(dispatch, getState){
 	const isAllFiles = store.upload.selectedFiles.type_send;
 	const form = new FormData();
 	const updArr = filesArr.slice();
+	let targetLength = updArr.length;
 	let host = process.env.REACT_APP_HOSTNAME;
 	if (process.env.REACT_APP_PORT){
 		host = `${process.env.REACT_APP_HOSTNAME}:${process.env.REACT_APP_PORT}`;
 	}
-	updArr.forEach(item => {
-		if (isAllFiles === 'all'){
-			form.append(item.file.name, item.file);
-			return false;
+	// updArr.forEach(item => {
+	// 	if (isAllFiles === 'all'){
+	// 		form.append(item.file.name, item.file);
+	// 		return false;
+	// 	}
+	// 	if (item.checked) form.append(item.file.name, item.file);
+	// });
+
+	//let file;
+	let file;
+	updArr.forEach((item, index) => {
+		file = item.file;
+		let reader = new FileReader();
+		reader.readAsArrayBuffer(file);
+
+		reader.onload = function() {
+			const uint8Array = new Uint8Array(reader.result);
+			form.append(file.name, uint8Array);
+			if (index === targetLength - 1){
+				//form.append('ntcn', 'Hello');
+				axios.post(`http://${host}${process.env.REACT_APP_UPLOAD_DIR}`, form)
+		    	.then(res => {
+		    		dispatch({type:'upload/sendServer', payload: 'success'});
+		    		console.log(res);
+		    	})
+		    	.catch(err => {
+		    		dispatch({type:'upload/sendServer', payload: 'error'});
+		    		console.log(err)}
+		    	);
+			}
 		}
-		if (item.checked) form.append(item.file.name, item.file);
-	});
-	axios.post(`http://${host}${process.env.REACT_APP_UPLOAD_DIR}`, form)
-		.then(res => {
-			dispatch({type:'upload/sendServer', payload: 'success'});
-			console.log(res);
-		})
-		.catch(err => {
-			dispatch({type:'upload/sendServer', payload: 'error'});
-			console.log(err)}
-		);
+	})
+	//let file = updArr[0].file;
+	//let reader = new FileReader();
+
+	//reader.readAsArrayBuffer(file);
+	// reader.onload = function() {
+	// 	const uint8Array = new Uint8Array(reader.result);
+	// 	console.log(uint8Array);
+	//     updArr.forEach(item => {
+	//     	if (isAllFiles === 'all'){
+	//     		form.append(item.file.name, uint8Array);
+	//     		return false;
+	//     	}
+	//     	if (item.checked) form.append(item.file.name, uint8Array);
+	//     });
+	//     axios.post(`http://${host}${process.env.REACT_APP_UPLOAD_DIR}`, form)
+	//     	.then(res => {
+	//     		dispatch({type:'upload/sendServer', payload: 'success'});
+	//     		console.log(res);
+	//     	})
+	//     	.catch(err => {
+	//     		dispatch({type:'upload/sendServer', payload: 'error'});
+	//     		console.log(err)}
+	//     	);
+	// };
+	
+	// axios.post(`http://${host}${process.env.REACT_APP_UPLOAD_DIR}`, form)
+	// 	.then(res => {
+	// 		dispatch({type:'upload/sendServer', payload: 'success'});
+	// 		console.log(res);
+	// 	})
+	// 	.catch(err => {
+	// 		dispatch({type:'upload/sendServer', payload: 'error'});
+	// 		console.log(err)}
+	// 	);
 }
