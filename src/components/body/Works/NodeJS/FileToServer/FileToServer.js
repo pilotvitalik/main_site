@@ -67,7 +67,7 @@ function FiletoServer(){
 						Перетащите файлы для отправки или
 					</p>
 				</div>
-				<form>
+				<form encType='multipart/form-data'>
 					<label htmlFor='uploadFile'>Загрузить файл</label>
 					<input id='uploadFile' type='file' name='upload_file' multiple onChange={addFile}/>
 				</form>

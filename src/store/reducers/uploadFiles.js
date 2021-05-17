@@ -146,15 +146,15 @@ export function sendFilesToServer(dispatch, getState){
 	if (process.env.REACT_APP_PORT){
 		host = `${process.env.REACT_APP_HOSTNAME}:${process.env.REACT_APP_PORT}`;
 	}
-	// updArr.forEach(item => {
-	// 	if (isAllFiles === 'all'){
-	// 		form.append(item.file.name, item.file);
-	// 		return false;
-	// 	}
-	// 	if (item.checked) form.append(item.file.name, item.file);
-	// });
+	updArr.forEach(item => {
+		if (isAllFiles === 'all'){
+			form.append(item.file.name, item.file);
+			return false;
+		}
+		if (item.checked) form.append(item.file.name, item.file);
+	});
 
-	//let file;
+	/*
 	let file;
 	updArr.forEach((item, index) => {
 		file = item.file;
@@ -163,6 +163,7 @@ export function sendFilesToServer(dispatch, getState){
 
 		reader.onload = function() {
 			const uint8Array = new Uint8Array(reader.result);
+			//console.log(uint8Array.toString())
 			form.append(file.name, uint8Array);
 			if (index === targetLength - 1){
 				//form.append('ntcn', 'Hello');
@@ -178,6 +179,7 @@ export function sendFilesToServer(dispatch, getState){
 			}
 		}
 	})
+	*/
 	//let file = updArr[0].file;
 	//let reader = new FileReader();
 
@@ -203,13 +205,13 @@ export function sendFilesToServer(dispatch, getState){
 	//     	);
 	// };
 	
-	// axios.post(`http://${host}${process.env.REACT_APP_UPLOAD_DIR}`, form)
-	// 	.then(res => {
-	// 		dispatch({type:'upload/sendServer', payload: 'success'});
-	// 		console.log(res);
-	// 	})
-	// 	.catch(err => {
-	// 		dispatch({type:'upload/sendServer', payload: 'error'});
-	// 		console.log(err)}
-	// 	);
+	axios.post(`http://${host}${process.env.REACT_APP_UPLOAD_DIR}`, form)
+		.then(res => {
+			dispatch({type:'upload/sendServer', payload: 'success'});
+			console.log(res);
+		})
+		.catch(err => {
+			dispatch({type:'upload/sendServer', payload: 'error'});
+			console.log(err)}
+		);
 }
