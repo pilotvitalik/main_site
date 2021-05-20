@@ -56,6 +56,7 @@
 }
 .uploadBlock form>input{
 	position: absolute;
+	width: 100%;
 	opacity: 0;
 }
 .uploadBlock form>label{

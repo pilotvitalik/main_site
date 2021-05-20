@@ -31,6 +31,7 @@ function File(props){
     let actSize = (props.file.size < 102400) ? `${(props.file.size/kb).toFixed(2)} КБ` : `${(props.file.size/mb).toFixed(2)} МБ`;
 
     function deleteFile(e){
+        console.log('deleteFile');
         dispatch({type: 'upload/deleteFile', payload: e.currentTarget.dataset.fileId});
     }
 
@@ -50,7 +51,7 @@ function File(props){
             <p className={style.number}>{props.ind + 1}.</p>
             <p className={style.name}>{props.file.name.replace(/.[a-zA-Z]+$/g, '')}</p>
             <p className={style.size}>{actSize}</p>
-            <Close className={classes.closeBtn} data-file-id={props.idInput} onClick={() => deleteFile}/>
+            <Close className={classes.closeBtn} data-file-id={props.idInput} onClick={deleteFile}/>
         </div>
     );
 }

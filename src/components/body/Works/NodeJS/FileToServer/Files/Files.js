@@ -17,7 +17,7 @@ function Files(){
 		? <File key={item.id} file={item.file} ind={index} idInput={item.id} isCheked={item.checked}/>
 		: ''
 	);
-
+	console.log(countFiles);
 	let btnTxt = (countFiles.files.length === 0)
 		? 'Выбрать все файлы и загрузить'
 		: `Загрузить ${countFiles.files.length} ${countFiles.act_name}`;
