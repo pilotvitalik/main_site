@@ -93,6 +93,13 @@ function changeStatusSend(val){
 	}
 }
 
+function resetStatusSend(val){
+	return{
+		status: val,
+		trigger: false,
+	}
+}
+
 export default function uploadReducer(state = initialState, action){
 	switch(action.type){
 		case 'upload/addFiles':
@@ -129,6 +136,12 @@ export default function uploadReducer(state = initialState, action){
 				...state,
 				isSend: changeStatusSend(action.payload),
 			}
+		case 'upload/showListFiles':
+			return{
+				...state,
+				isSend: resetStatusSend(action.payload),
+				listFiles: [],
+			}
 		default:
 			return state;
 	}
@@ -140,7 +153,6 @@ export function sendFilesToServer(dispatch, getState){
 	const isAllFiles = store.upload.selectedFiles.type_send;
 	const form = new FormData();
 	const updArr = filesArr.slice();
-	let targetLength = updArr.length;
 	let host = process.env.REACT_APP_HOSTNAME;
 	if (process.env.REACT_APP_PORT){
 		host = `${process.env.REACT_APP_HOSTNAME}:${process.env.REACT_APP_PORT}`;

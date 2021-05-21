@@ -44,6 +44,7 @@ function FiletoServer(){
 
 	function addFile(e){
 		const files = e.currentTarget.files;
+		if (statusSend.trigger) dispatch({type: 'upload/showListFiles', payload: ''});
 		for (let key in files){
 			if (typeof files[key] === 'object'){
 				dispatch({type: 'upload/addFiles', payload: files[key]});
