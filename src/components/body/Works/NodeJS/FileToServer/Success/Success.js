@@ -7,7 +7,6 @@ function Success(props){
 		? 'Загрузка выполнена успешно'
 		: 'Произошла ошибка. Попробуйте повторить позднее';
 
-	let registration = (props.status === 'success')
 		? <Registration/>
 		: '';
 

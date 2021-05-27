@@ -1,0 +1,47 @@
+.regBlock,
+.regBlock form,
+.regBlock form>div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+.regBlock>p{
+    display: inline-flex;
+    position: relative;
+    width: auto;
+    height: auto;
+    margin-bottom: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+.regBlock form{
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+.regBlock form>div:first-child{
+    width: 30%;
+    align-items: flex-end;
+}
+.regBlock form>div:last-child{
+    width: 70%;
+    align-items: start;
+}
+.regBlock form>div label{
+    display: inline-flex;
+    align-items: center;
+    margin-right: 7px;
+    height: 28px;
+}
+.regBlock form>div input{
+    width: 100%;
+    height: 28px;
+    background: #fff;
+}
+.regBlock form>div label:not(:last-child),
+.regBlock form>div input:not(:last-child){
+    margin-bottom: 7px;
+}

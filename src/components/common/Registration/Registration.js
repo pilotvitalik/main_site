@@ -5,18 +5,25 @@ function Registration(){
 	return(
 		<div className={style.regBlock}>
 			<p>
-				Вы загрузили файлы на сервер. Для доступа к файлам, 
+				Файлы успешно загружены на сервер.
+			</p>
+			<p>
+				Для доступа к файлам,
 				Вам необходимо зарегистрироваться.
 			</p>
 			<form>
-				<label htmlFor='emailReg'>Эл. почта</label>
-				<input id='emailReg' type='text' name='email'/>
-				<label htmlFor='usernameReg'>Имя пользователя</label>
-				<input id='usernameReg' type='text' name='username'/>
-				<label htmlFor='passwdReg'>Пароль</label>
-				<input id='passwdReg' type='password' name='password'/>
-				<label htmlFor='passwdRepeatReg'>Повторите пароль</label>
-				<input id='passwdRepeatReg' type='password' name='password_repeat'/>
+				<div>
+					<label htmlFor='emailReg'>Эл. почта:</label>
+					<label htmlFor='usernameReg'>Имя пользователя:</label>
+					<label htmlFor='passwdReg'>Пароль:</label>
+					<label htmlFor='passwdRepeatReg'>Повторите пароль:</label>
+				</div>
+				<div>
+					<input id='emailReg' type='text' name='email'/>
+					<input id='usernameReg' type='text' name='username'/>
+					<input id='passwdReg' type='password' name='password'/>
+					<input id='passwdRepeatReg' type='password' name='password_repeat'/>
+				</div>
 			</form>
 			<button type='button'>
 				Зарегистрироваться

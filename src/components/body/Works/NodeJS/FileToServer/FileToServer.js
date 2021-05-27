@@ -13,7 +13,7 @@ function FiletoServer(){
 
 	const [isHighlight, setHighlight] = useState('');
 
-	const showActComponent = (!statusSend.trigger) ? <Files/> : <Succes status={statusSend.status}/>;
+	const showActComponent = (statusSend.trigger) ? <Files/> : <Succes status={statusSend.status}/>;
 
 	function fileDragEnter(e){
 		e.preventDefault();
