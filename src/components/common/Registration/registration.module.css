@@ -21,9 +21,10 @@
 .regBlock form{
     flex-direction: row;
     flex-wrap: nowrap;
+    margin: 10px 0 20px 0;
 }
 .regBlock form>div:first-child{
-    width: 30%;
+    width: 27%;
     align-items: flex-end;
 }
 .regBlock form>div:last-child{
@@ -37,11 +38,50 @@
     height: 28px;
 }
 .regBlock form>div input{
+    position: relative;
     width: 100%;
     height: 28px;
+    padding-left:  10px;
+    border:  none;
+    border-bottom:  1px solid #d5d5d5;
     background: #fff;
 }
 .regBlock form>div label:not(:last-child),
 .regBlock form>div input:not(:last-child){
     margin-bottom: 7px;
+}
+.regBlock button{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width:  auto;
+    height:  40px;
+    margin-bottom: 11px;
+    padding: 0 10px;
+    color:  #fff;
+    font-size:  16px;
+    font-family:  'Roboto', sans-serif;
+    background:  #ff7f56;
+    border:  1px solid #ff7f56;
+    border-radius:  20px;
+}
+.regBlock button:hover{
+    cursor:  pointer;
+    background:  #fff;
+    color:  #ff7f56;
+}
+.regBtn{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: auto;
+    height: auto;
+    color:  #000;
+    font-size:  16px;
+    font-family:  'Roboto', sans-serif;
+}
+.regBtn:hover{
+    cursor:  pointer;
 }

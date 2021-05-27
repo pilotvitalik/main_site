@@ -1,7 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 import style from './registration.module.css';
 
 function Registration(){
+	const [email, setEmail] = useState('');
+	const [userName, setUserName] = useState('');
+	const [password, setPassword] = useState('');
+	const [repeatPasswd, setRepeatPasswd] = useState('');
+
+
+	function sendReg(){
+		const obj = [
+			{name: 'email', value: email},
+			{name: 'user',value: userName},
+			{name: 'password',value: password},
+			{name: 'repeatPasswd',value: repeatPasswd},
+		];
+		let formData = new FormData();
+		obj.forEach(item => {
+			formData.append(item.name, item.value);
+		});
+		axios.post('/registration', formData)
+			.then((response) => {
+				console.log(response);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	}
+
 	return(
 		<div className={style.regBlock}>
 			<p>
@@ -19,18 +46,25 @@ function Registration(){
 					<label htmlFor='passwdRepeatReg'>Повторите пароль:</label>
 				</div>
 				<div>
-					<input id='emailReg' type='text' name='email'/>
-					<input id='usernameReg' type='text' name='username'/>
-					<input id='passwdReg' type='password' name='password'/>
-					<input id='passwdRepeatReg' type='password' name='password_repeat'/>
+					<input id='emailReg' type='text' name='email' value={email} 
+						onChange={(event) => setEmail(event.currentTarget.value)}/>
+
+					<input id='usernameReg' type='text' name='username' value={userName} 
+						onChange={(event) => setUserName(event.currentTarget.value)}/>
+
+					<input id='passwdReg' type='password' name='password' value={password} 
+						onChange={(event) => setPassword(event.currentTarget.value)}/>
+
+					<input id='passwdRepeatReg' type='password' name='password_repeat' value={repeatPasswd} 
+						onChange={(event) => setRepeatPasswd(event.currentTarget.value)}/>
 				</div>
 			</form>
-			<button type='button'>
+			<button type='button' onClick={sendReg}>
 				Зарегистрироваться
 			</button>
-			<a href='#'>
+			<span className={style.regBtn}>
 				Уже есть аккаунт?
-			</a>
+			</span>
 		</div>
 	);
 }
