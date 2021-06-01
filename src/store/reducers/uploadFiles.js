@@ -164,7 +164,6 @@ export function sendFilesToServer(dispatch, getState){
 		}
 		if (item.checked) form.append(item.file.name, item.file);
 	});
-
 	axios.post(`http://${host}${process.env.REACT_APP_UPLOAD_DIR}`, form)
 		.then(res => {
 			dispatch({type:'upload/sendServer', payload: 'success'});

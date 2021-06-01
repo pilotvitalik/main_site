@@ -20,7 +20,7 @@ function Registration(){
 		obj.forEach(item => {
 			formData.append(item.name, item.value);
 		});
-		axios.post('/registration', formData)
+		axios.post(`http://${process.env.REACT_APP_HOSTNAME}:${process.env.REACT_APP_PORT}/registration`, formData)
 			.then((response) => {
 				console.log(response);
 			})
