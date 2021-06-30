@@ -12,7 +12,7 @@ function ListWorks(props){
 	const categories = useSelector(state => state.main[props.type]);
 
 	const listCat = categories.map(item => 
-		<Link key={item.id} to={`${url}${item.url_page}`} className={style.cat}>
+		<Link key={item.id} to={`${url}${item.url_page}`} className={`${style.cat} ${style[item.class]}`}>
 			<img src={process.env.PUBLIC_URL + item.url_image} alt={item.alt}/>
 			<span>{item.name}</span>
 		</Link>
